@@ -1,0 +1,14 @@
+<div class="card shadow" style="width: 10em;">
+    <div class="card-body">
+        <div class="card-title">
+            <ng-content select=".word"></ng-content>
+        </div>
+        <div class="card-text">
+            <ng-content select=".definition"></ng-content>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between">
+        <button class="btn btn-outline-primary btn-sm shadow-sm" (click)="onEdit()">Edit</button>
+        <button class="btn btn-outline-danger btn-sm shadow-sm" (click)="onDelete()">Delete</button>
+    </div>
+</div>

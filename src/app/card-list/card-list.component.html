@@ -1,0 +1,12 @@
+<div class="d-flex justify-content-left" style="flex-wrap: wrap" *ngIf="cardList.length != 0; else noCards">
+    <app-card *ngFor="let card of cardList; let i = index" (delete)="onDelete(i)" (edit)="onEdit(i)" [appViewCard]="i"
+        style="margin: 10px;">
+        <p class="card-content fs-4 fw-semibold word">{{card.word}}</p>
+        <p class="card-content fs-4 fw-semibold definition">{{card.translation}}</p>
+    </app-card>
+</div>
+<ng-template #noCards>
+    <div class="position-absolute top-50 start-50 translate-middle">
+        <h3 style="color:crimson">No cards</h3>
+    </div>
+</ng-template>

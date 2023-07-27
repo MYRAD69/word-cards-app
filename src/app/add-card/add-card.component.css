@@ -1,0 +1,9 @@
+.alert {
+    padding-top: 9px;
+    font-size: small;
+    height: 3em;
+}
+
+.form-control.ng-touched.ng-invalid {
+    border-color: red;
+}

@@ -1,0 +1,37 @@
+<div class="d-flex" *ngIf="cardList.length != 0; else noCards">
+    <div class="container">
+        <div [ngClass]="toggleProperty ? 'flipped' : ''" class="card" (click)="toggle()">
+            <div *ngIf="orientation; then wordFront else transFront"></div>
+            <ng-template #wordFront>
+                <div class="front">
+                    <h2>{{getCard().word}}</h2>
+                </div>
+            </ng-template>
+            <ng-template #transFront>
+                <div class="front">
+                    <h2>{{getCard().translation}}</h2>
+                </div>
+            </ng-template>
+            <div *ngIf="!orientation; then wordBack else transBack"></div>
+            <ng-template #wordBack>
+                <div class="back">
+                    <h2>{{getCard().word}}</h2>
+                </div>
+            </ng-template>
+            <ng-template #transBack>
+                <div class="back">
+                    <h2>{{getCard().translation}}</h2>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+    <div class="ms-4">
+        <button class="btn btn-outline-primary" (click)="onNext()">Next</button>
+        <button class="btn btn-outline-primary" (click)="onPrev()">Previous</button>
+    </div>
+</div>
+<ng-template #noCards>
+    <div class="position-absolute top-50 start-50 translate-middle">
+        <h3 style="color:crimson">No cards</h3>
+    </div>
+</ng-template>
